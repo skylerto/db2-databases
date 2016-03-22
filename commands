@@ -1,0 +1,44 @@
+update command options using v
+update command options using z ON P_3_2.txt
+
+drop table Test_Suppliers_2016
+create table Test_Suppliers_2016 (SID integer not null, SNAME varchar(15), \
+ADDRESS varchar(20), primary key (SID))
+
+drop table Test_Parts_2016
+create table Test_Parts_2016 (PID integer not null, PNAME varchar(15), COLOR \
+varchar(8), primary key (PID))
+
+drop table Test_Catalog_2016
+create table Test_Catalog_2016 (SID integer not null, PID integer not null, COST \
+real, primary key (SID, PID), foreign key (PID) references Test_Parts_2016(PID), \
+foreign key (SID) references Test_Suppliers_2016 (SID))
+
+insert into Test_Suppliers_2016 values (11, 'Supplier 11', 'Address 100')
+insert into Test_Suppliers_2016 values (12, 'Supplier 12', 'Address 200')
+insert into Test_Suppliers_2016 values (13, 'Supplier 13', 'Address 300')
+insert into Test_Suppliers_2016 values (14, 'Supplier 14', 'Address 400')
+
+insert into Test_Parts_2016 values (110, 'Part 110', 'red')
+insert into Test_Parts_2016 values (111, 'Part 111', 'green')
+insert into Test_Parts_2016 values (112, 'Part 112', 'red')
+insert into Test_Parts_2016 values (113, 'Part 113', 'blue')
+insert into Test_Parts_2016 values (114, 'Part 114', 'blue')
+
+insert into Test_Catalog_2016 values (11, 110, 12.50)
+insert into Test_Catalog_2016 values (14, 110, 15.00)
+insert into Test_Catalog_2016 values (11, 111, 13.50)
+insert into Test_Catalog_2016 values (12, 111, 300.00)
+insert into Test_Catalog_2016 values (14, 111, 22.00)
+insert into Test_Catalog_2016 values (13, 111, 20.50)
+insert into Test_Catalog_2016 values (12, 112, 17.50)
+insert into Test_Catalog_2016 values (13, 112, 39.00)
+insert into Test_Catalog_2016 values (11, 112, 200.50)
+insert into Test_Catalog_2016 values (11, 113, 126.50)
+insert into Test_Catalog_2016 values (11, 114, 200.40)
+insert into Test_Catalog_2016 values (13, 114, 105.50)
+
+select * from Test_Suppliers_2016
+select * from Test_Parts_2016
+select SID, PID, CAST(COST as NUMERIC (8,2)) as COST from Test_Catalog_2016
+
