@@ -1,0 +1,13 @@
+
+
+with type (ARTID, TYPE) as (select DISTINCT A.ARTID, (case when A.ARTID=B.ARTID \
+                      then 'painting' \
+                    when A.ARTID=C.ARTID \
+                      then 'sculpture' \
+                    when A.ARTID=D.ARTID \
+                      then 'other' \
+                    else NULL \
+                    END) as TYPE from \
+ARTOBJ2016 A, painting2016 B, Sculpture2016 C, OTHERS2016 D where \
+A.ARTID=B.ARTID or A.ARTID=C.ARTID or A.ARTID=D.ARTID) select COUNT(TYPE) \
+as NBR, TYPE as TYPE from type GROUP BY TYPE
