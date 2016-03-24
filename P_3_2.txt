@@ -1,0 +1,67 @@
+DB20000I  The UPDATE COMMAND OPTIONS command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+
+SID         SNAME           ADDRESS             
+----------- --------------- --------------------
+         11 Supplier 11     Address 100         
+         12 Supplier 12     Address 200         
+         13 Supplier 13     Address 300         
+         14 Supplier 14     Address 400         
+
+  4 record(s) selected.
+
+
+PID         PNAME           COLOR   
+----------- --------------- --------
+        110 Part 110        red     
+        111 Part 111        green   
+        112 Part 112        red     
+        113 Part 113        blue    
+        114 Part 114        blue    
+
+  5 record(s) selected.
+
+
+SID         PID         COST      
+----------- ----------- ----------
+         11         110      12.50
+         14         110      15.00
+         11         111      13.50
+         12         111     300.00
+         14         111      22.00
+         13         111      20.50
+         12         112      17.50
+         13         112      39.00
+         11         112     200.50
+         11         113     126.50
+         11         114     200.40
+         13         114     105.50
+
+  12 record(s) selected.
+
