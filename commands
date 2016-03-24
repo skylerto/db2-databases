@@ -139,8 +139,6 @@ insert into exibition2016 values ('MK_E02', 'Exibition2', 'TORONTO', \
 '11/24/2007', '05/05/2008')
 insert into exibition2016 values ('MK_E03', 'Exibition3', 'Toronto', '01/01/2009','05/30/2009')
 
-select * from exibition2016
-
 select * from ARTIST2016
 select * from ARTOBJ2016
 select * from painting2016
@@ -150,3 +148,74 @@ select * from Sculpture2016
 select * from Permanent2016
 select * from collection2016
 select * from Borrowed2016
+select * from exibition2016
+
+
+with t1 (ARTID, ANAME) as (select B.ARTID, A.ANAME from ARTIST2016 A \
+INNER JOIN ARTOBJ2016 B ON A.A_ID=B.A_ID), \
+t2 (EXIBNAME, ARTID, STARTDATE, ENDDATE, EXIBSTART, EXIBEND) \
+as (select C.EXIBNAME, D.ARTID, D.STARTDATE, \
+D.ENDDATE, C.EXIBSTART, C.EXIBEND from exibition2016 C \
+INNER JOIN EXPOSED2016 D ON C.E_ID=D.E_ID) \
+select EXIBNAME, t1.ARTID, STARTDATE, ENDDATE, EXIBSTART, EXIBEND, t1.ANAME as ARTIST from t1, t2 where t1.ARTID=t2.ARTID
+
+with t1 (ARTID, ANAME, ARTEPOCH, ARTYEAR) as (select B.ARTID, A.ANAME, \
+  B.ARTEPOCH, B.ARTYEAR from ARTIST2016 A INNER JOIN ARTOBJ2016 B ON \
+  A.A_ID=B.A_ID) \
+  select t1.ARTID, t1.ANAME as ARTIST, t1.ARTEPOCH, C.ARTSTATE, MAX(ARTCOST) \
+  as PRICE, C.ARTDATE from t1 INNER JOIN Permanent2016 C ON t1.ARTID=C.ARTID \
+  GROUP BY t1.ANAME, t1.ARTID, C.ARTDATE, t1.ARTEPOCH, C.ARTSTATE ORDER BY PRICE desc fetch first 1 rows only
+
+  with t1 (COLNAME, ARTID, TIMES) as (select COLNAME, B.ARTID, COUNT(B.ARTID) \
+    as TIMES from collection2016 A INNER JOIN Borrowed2016 B ON A.COL_ID=B.COL_ID \
+    GROUP BY COLNAME, B.ARTID) select t1.ARTID, t1.COLNAME, \
+    TIMES from t1, Borrowed2016 A where t1.ARTID=A.ARTID \
+    GROUP BY t1.ARTID, t1.COLNAME, t1.TIMES
+
+    with paintings (ARTID, A_ID, ARTYEAR, ARTTITLE) as \
+      (select A.ARTID, A.A_ID, A.ARTYEAR, A.ARTTITLE \
+      from ARTOBJ2016 A INNER JOIN painting2016 B ON A.ARTID=B.ARTID), \
+      sculptures (ARTID, A_ID, ARTYEAR, ARTTITLE) as \
+      (select A.ARTID, A.A_ID, A.ARTYEAR, A.ARTTITLE from ARTOBJ2016 A INNER JOIN \
+      Sculpture2016 B ON A.ARTID=B.ARTID), \
+      objects (ARTID, ARTIST, ARTYEAR, ARTTITLE) \
+      as (select paintings.ARTID, C.ANAME as ARTIST, paintings.ARTYEAR, paintings.ARTTITLE \
+      from paintings, ARTIST2016 C where \
+      paintings.A_ID=C.A_ID UNION \
+      select sculptures.ARTID, D.ANAME as ARTIST, sculptures.ARTYEAR, sculptures.ARTTITLE \
+      from sculptures, ARTIST2016 D where sculptures.A_ID=D.A_ID) \
+      select DISTINCT E.ARTID, objects.ARTIST, objects.ARTYEAR, objects.ARTTITLE \
+      from objects, Borrowed2016 E where objects.ARTID=E.ARTID ORDER BY objects.ARTYEAR
+
+      with type (ARTID, TYPE) as (select DISTINCT A.ARTID, (case when A.ARTID=B.ARTID \
+                            then 'painting' \
+                          when A.ARTID=C.ARTID \
+                            then 'sculpture' \
+                          when A.ARTID=D.ARTID \
+                            then 'other' \
+                          else NULL \
+                          END) as TYPE from \
+      Permanent2016 A, painting2016 B, Sculpture2016 C, OTHERS2016 D, Permanent2016 E where \
+      A.ARTID=E.ARTID) select COUNT(TYPE) \
+      as NBR, TYPE as TYPE from type where TYPE IS NOT NULL GROUP BY TYPE
+
+      with type (ARTID, ARTDATE, ARTCOST, ARTSTATE, ARTTYPE) as (select DISTINCT A.ARTID, A.ARTDATE, A.ARTCOST, A.ARTSTATE, (case when A.ARTID=B.ARTID \
+                            then 'painting' \
+                          when A.ARTID=C.ARTID \
+                            then 'sculpture' \
+                          when A.ARTID=D.ARTID \
+                            then 'other' \
+                          else NULL \
+                          END) as ARTTYPE from \
+      Permanent2016 A, painting2016 B, Sculpture2016 C, OTHERS2016 D, Permanent2016 E where \
+      A.ARTID=E.ARTID) select ARTID, ARTDATE, ARTCOST, ARTSTATE, ARTTYPE from type where ARTTYPE IS NOT NULL GROUP BY ARTID, ARTDATE, ARTCOST, ARTSTATE, ARTTYPE ORDER BY ARTCOST
+
+      with owns (A_ID, ARTCOST) as (select A_ID, ARTCOST from Permanent2016 \
+        INNER JOIN ARTOBJ2016 ON Permanent2016.ARTID=ARTOBJ2016.ARTID) \
+        select SUM (ARTCOST) as "Total value", ANAME as "Artist name" from \
+        owns, ARTIST2016 where owns.A_ID=ARTIST2016.A_ID GROUP BY ANAME
+
+        with artists (ARTID, A_ID, ANAME) as (select ARTID, A.A_ID, ANAME from \
+          ARTIST2016 A INNER JOIN ARTOBJ2016 B ON A.A_ID=B.A_ID) \
+          select artists.ARTID, ARTCOST, A_ID, ANAME from artists, Permanent2016 \
+          where artists.ARTID=Permanent2016.ARTID
