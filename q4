@@ -1,0 +1,16 @@
+# => Final Query
+with paintings (ARTID, A_ID, ARTYEAR, ARTTITLE) as \
+  (select A.ARTID, A.A_ID, A.ARTYEAR, A.ARTTITLE \
+  from ARTOBJ2016 A INNER JOIN painting2016 B ON A.ARTID=B.ARTID), \
+  sculptures (ARTID, A_ID, ARTYEAR, ARTTITLE) as \
+  (select A.ARTID, A.A_ID, A.ARTYEAR, A.ARTTITLE from ARTOBJ2016 A INNER JOIN \
+  Sculpture2016 B ON A.ARTID=B.ARTID), \
+  objects (ARTID, ARTIST, ARTYEAR, ARTTITLE) \
+  as (select paintings.ARTID, C.ANAME as ARTIST, paintings.ARTYEAR, paintings.ARTTITLE \
+  from paintings, ARTIST2016 C where \
+  paintings.A_ID=C.A_ID UNION \
+  select sculptures.ARTID, D.ANAME as ARTIST, sculptures.ARTYEAR, sculptures.ARTTITLE \
+  from sculptures, ARTIST2016 D where sculptures.A_ID=D.A_ID) \
+  select DISTINCT E.ARTID, objects.ARTIST, objects.ARTYEAR, objects.ARTTITLE \
+  from objects, Borrowed2016 E where objects.ARTID=E.ARTID ORDER BY objects.ARTYEAR
+

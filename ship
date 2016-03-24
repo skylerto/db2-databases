@@ -1,0 +1,3 @@
+#! /bin/sh
+
+rsync -r . cse23170@red.cse.yorku.ca:~/Documents/3421/project3_1/

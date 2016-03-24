@@ -1,0 +1,144 @@
+update command options using v
+update command options using z ON P_3_1.txt
+
+drop table ARTIST2016
+create table ARTIST2016 (A_ID varchar(10) not null, ANAME varchar(10) not null, \
+  ABIRTH date, ADEATH date, ACOUNTRY varchar(10), AEPOCH varchar(10), ASTYLE varchar(10), primary \
+  key (A_ID))
+
+insert into ARTIST2016 values ('MK_A1', 'MK_Artist1', '1657-12-02', '1702-12-12', 'Holland', \
+'Ancient', 'Academic')
+insert into ARTIST2016 values ('MK_A2', 'MK_Artist2', '1980-12-12', NULL, \
+'Canada', 'Modern', 'Modern')
+insert into ARTIST2016 values ('MK_A3', 'MK_Artist3', '1978-01-12', NULL, \
+'Canada', 'Modern', 'Modern')
+insert into ARTIST2016 values ('unknown', 'unknown', NULL, NULL, NULL, NULL, NULL)
+
+select * from ARTIST2016
+
+drop table ARTOBJ2016
+create table ARTOBJ2016 (ARTID varchar(10) not null, A_ID varchar(10) not null, \
+  ARTYEAR INTEGER, ARTTITLE varchar(20), ARTEPOCH varchar(15), ARTDESCR varchar(50), primary key \
+  (ARTID), foreign key (A_ID) references ARTIST2016 (A_ID))
+
+insert into ARTOBJ2016 values ('MK01', 'MK_A1', 1700, 'The lake with sun', \
+'Ancient', 'The colors are shades of blue and green')
+insert into ARTOBJ2016 values ('MK02', 'MK_A1', 1710, 'Under the trees', \
+'Ancient', 'Description for MK02')
+insert into ARTOBJ2016 values ('MK04', 'MK_A2', 2000, 'Flying', 'Modern', \
+'Description for MK04')
+insert into ARTOBJ2016 values ('MK05', 'MK_A2', 2007, 'Sun', 'Modern', \
+'Description for MK05')
+insert into ARTOBJ2016 values ('MK06', 'MK_A2', 2008, 'Flower', 'Modern', \
+'Description for MK06')
+insert into ARTOBJ2016 values ('MK07', 'unknown', 1600, 'Saint James', \
+'Renaissance', 'Description for MK07')
+insert into ARTOBJ2016 values ('MK08', 'MK_A3', 2000, 'Animals', 'Modern', \
+'Description for MK08')
+insert into ARTOBJ2016 values ('MK09', 'MK_A3', 2002, 'CN Tower', 'Modern', \
+'Description for MK09')
+insert into ARTOBJ2016 values ('MK03', 'MK_A2', 2000, 'position', 'Modern', \
+'Description for MK03')
+
+select * from ARTOBJ2016
+
+drop table painting2016
+create table painting2016 (ARTID varchar(10) not null, PTYPE varchar(10) not \
+null, PMAT varchar(10) not null, primary key (ARTID, PTYPE, PMAT))
+
+insert into painting2016 values ('MK01', 'oil', 'canvas')
+insert into painting2016 values ('MK02', 'oil', 'wood')
+insert into painting2016 values ('MK07', 'oil', 'wood')
+
+select * from painting2016
+
+drop table OTHERS2016
+create table OTHERS2016 (ARTID varchar(10) not null, OTYPE varchar(10) not null, primary \
+key (ARTID, OTYPE), foreign key (ARTID) references ARTOBJ2016)
+
+insert into OTHERS2016 values ('MK05', 'photo')
+insert into OTHERS2016 values ('MK06', 'video')
+
+select * from OTHERS2016
+
+drop table EXPOSED2016
+create table EXPOSED2016 (E_ID varchar(10) not null, ARTID varchar(10) not null, \
+STARTDATE date not null, ENDDATE date, primary key (E_ID, ARTID, STARTDATE), \
+foreign key (ARTID) references ARTOBJ2016 (ARTID))
+
+insert into EXPOSED2016 values ('MK_E01', 'MK01', '02/05/2009', '03/04/2009')
+insert into EXPOSED2016 values ('MK_E02', 'MK02', '11/24/2007', '12/24/2007')
+insert into EXPOSED2016 values ('MK_E02', 'MK03', '02/02/2008', '04/25/2008')
+insert into EXPOSED2016 values ('MK_E02', 'MK04', '02/02/2008', '04/25/2008')
+insert into EXPOSED2016 values ('MK_E02', 'MK05', '02/02/2008', '04/25/2008')
+insert into EXPOSED2016 values ('MK_E02', 'MK07', '12/02/2007', '02/02/2008')
+insert into EXPOSED2016 values ('MK_E03', 'MK06', '01/01/2009', '02/28/2009')
+insert into EXPOSED2016 values ('MK_E03', 'MK06', '03/30/2009', '04/30/2009')
+
+select * from EXPOSED2016
+
+drop table Sculpture2016
+create table Sculpture2016 (ARTID varchar(10) not null, SMAT varchar(10) not \
+null, SHEIGHT real not null, SWEIGHT real not null, primary key (ARTID, SMAT, \
+SHEIGHT, SWEIGHT), foreign key (ARTID) references ARTOBJ2016 (ARTID))
+
+insert into Sculpture2016 values ('MK03', 'stone', 2.3, 234.5)
+insert into Sculpture2016 values ('MK04', 'wood', 12, 55.5)
+insert into Sculpture2016 values ('MK08', 'steel', 0.5, 2.5)
+
+select * from Sculpture2016
+
+drop table Permanent2016
+create table Permanent2016 (ARTID varchar(10) not null, ARTDATE date not null, \
+  ARTCOST real not null, ARTSTATE varchar(10) not null, primary key (ARTID, \
+  ARTDATE, ARTCOST, ARTSTATE), foreign key (ARTID) references ARTOBJ2016 (ARTID))
+
+insert into Permanent2016 values ('MK03', '12/12/1978', 23000, 'DISPLAY')
+insert into Permanent2016 values ('MK02', '12/30/1980', 5500000, 'DISPLAY')
+insert into Permanent2016 values ('MK04', '12/23/2000', 200000, 'DISPLAY')
+insert into Permanent2016 values ('MK05', '12/23/2007', 200000, 'STORED')
+insert into Permanent2016 values ('MK06', '12/12/2007', 20000000, 'STORED')
+
+select * from Permanent2016
+
+drop table collection2016
+create table collection2016 (COL_ID varchar (10) not null, COLNAME varchar(20), \
+  COLTYPE varchar(10), COLDESCR varchar(50), COLADR varchar(50), COLPHONE varchar(15), \
+  COLCONTACT varchar(20), primary key (COL_ID))
+
+insert into collection2016 values ('MK_C1', 'Colection1', 'Private', NULL, NULL, \
+  4162341234, 'Anissa Maw')
+insert into collection2016 values ('MK_C2', 'Colection2', 'Museum', NULL, NULL, \
+  4161234567, 'Hector Berlioz')
+insert into collection2016 values ('MK_C3', 'Colection3', 'Museum', NULL, NULL, \
+  4162341444, 'Skyler Layne')
+
+select * from collection2016
+
+drop table Borrowed2016
+create table Borrowed2016 (ARTID varchar(10) not null, COL_ID varchar(10) not \
+  null, DATEBORW date not null, DATERETURN date not null, primary key (ARTID, \
+  COL_ID, DATEBORW, DATERETURN), foreign key (ARTID) references ARTOBJ2016 \
+  (ARTID), foreign key (COL_ID) references collection2016 (COL_ID))
+
+insert into Borrowed2016 values ('MK01', 'MK_C1', '12/23/2004', '12/02/2005')
+insert into Borrowed2016 values ('MK01', 'MK_C1', '12/23/2005', '11/02/2006')
+insert into Borrowed2016 values ('MK08', 'MK_C3', '12/30/2006', '12/30/2008')
+insert into Borrowed2016 values ('MK09', 'MK_C3', '12/30/2006', '12/30/2008')
+insert into Borrowed2016 values ('MK01', 'MK_C1', '02/05/2009', '03/04/2009')
+insert into Borrowed2016 values ('MK07', 'MK_C2', '02/02/2005', '02/03/2006')
+insert into Borrowed2016 values ('MK07', 'MK_C2', '12/02/2007', '12/12/2008')
+
+select * from Borrowed2016
+
+drop table exibition2016
+create table exibition2016 (E_ID varchar(10) not null, EXIBNAME varchar (15), EXIBPLACE varchar (15), EXIBSTART date, EXIBEND date, primary key (E_ID))
+
+insert into exibition2016 values ('MK_E01', 'Exibition1', 'Hamilton', \
+'01/23/2009', '05/04/2009')
+insert into exibition2016 values ('MK_E02', 'Exibition2', 'TORONTO', \
+'11/24/2007', '05/05/2008')
+insert into exibition2016 values ('MK_E03', 'Exibition3', 'Toronto', '01/01/2009','05/30/2009')
+
+select * from exibition2016
+
