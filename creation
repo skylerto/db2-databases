@@ -18,7 +18,7 @@ select * from ARTIST2016
 
 drop table ARTOBJ2016
 create table ARTOBJ2016 (ARTID varchar(10) not null, A_ID varchar(10) not null, \
-  ARTYEAR INTEGER, ARTTITLE varchar(20), ARTEPOCH varchar(15), ARTDESCR varchar(50), primary key \
+  ARTYEAR INTEGER, ARTTITLE varchar(20), ARTEPOCH varchar(15), ARTDESCR varchar(40), primary key \
   (ARTID), foreign key (A_ID) references ARTIST2016 (A_ID))
 
 insert into ARTOBJ2016 values ('MK01', 'MK_A1', 1700, 'The lake with sun', \
@@ -103,7 +103,7 @@ select * from Permanent2016
 
 drop table collection2016
 create table collection2016 (COL_ID varchar (10) not null, COLNAME varchar(20), \
-  COLTYPE varchar(10), COLDESCR varchar(50), COLADR varchar(50), COLPHONE varchar(15), \
+  COLTYPE varchar(10), COLDESCR varchar(30), COLADR varchar(10), COLPHONE varchar(15), \
   COLCONTACT varchar(20), primary key (COL_ID))
 
 insert into collection2016 values ('MK_C1', 'Colection1', 'Private', NULL, NULL, \
@@ -141,4 +141,3 @@ insert into exibition2016 values ('MK_E02', 'Exibition2', 'TORONTO', \
 insert into exibition2016 values ('MK_E03', 'Exibition3', 'Toronto', '01/01/2009','05/30/2009')
 
 select * from exibition2016
-

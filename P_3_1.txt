@@ -77,17 +77,17 @@ unknown    unknown    -          -          -          -          -
   4 record(s) selected.
 
 
-ARTID      A_ID       ARTYEAR     ARTTITLE             ARTEPOCH        ARTDESCR                                          
----------- ---------- ----------- -------------------- --------------- --------------------------------------------------
-MK01       MK_A1             1700 The lake with sun    Ancient         The colors are shades of blue and green           
-MK02       MK_A1             1710 Under the trees      Ancient         Description for MK02                              
-MK03       MK_A2             2000 position             Modern          Description for MK03                              
-MK04       MK_A2             2000 Flying               Modern          Description for MK04                              
-MK05       MK_A2             2007 Sun                  Modern          Description for MK05                              
-MK06       MK_A2             2008 Flower               Modern          Description for MK06                              
-MK07       unknown           1600 Saint James          Renaissance     Description for MK07                              
-MK08       MK_A3             2000 Animals              Modern          Description for MK08                              
-MK09       MK_A3             2002 CN Tower             Modern          Description for MK09                              
+ARTID      A_ID       ARTYEAR     ARTTITLE             ARTEPOCH        ARTDESCR                                
+---------- ---------- ----------- -------------------- --------------- ----------------------------------------
+MK01       MK_A1             1700 The lake with sun    Ancient         The colors are shades of blue and green 
+MK02       MK_A1             1710 Under the trees      Ancient         Description for MK02                    
+MK03       MK_A2             2000 position             Modern          Description for MK03                    
+MK04       MK_A2             2000 Flying               Modern          Description for MK04                    
+MK05       MK_A2             2007 Sun                  Modern          Description for MK05                    
+MK06       MK_A2             2008 Flower               Modern          Description for MK06                    
+MK07       unknown           1600 Saint James          Renaissance     Description for MK07                    
+MK08       MK_A3             2000 Animals              Modern          Description for MK08                    
+MK09       MK_A3             2002 CN Tower             Modern          Description for MK09                    
 
   9 record(s) selected.
 
@@ -143,11 +143,11 @@ MK06       12/12/2007            +2.00000E+007 STORED
   5 record(s) selected.
 
 
-COL_ID     COLNAME              COLTYPE    COLDESCR                                           COLADR                                             COLPHONE        COLCONTACT          
----------- -------------------- ---------- -------------------------------------------------- -------------------------------------------------- --------------- --------------------
-MK_C1      Colection1           Private    -                                                  -                                                  4162341234      Anissa Maw          
-MK_C2      Colection2           Museum     -                                                  -                                                  4161234567      Hector Berlioz      
-MK_C3      Colection3           Museum     -                                                  -                                                  4162341444      Skyler Layne        
+COL_ID     COLNAME              COLTYPE    COLDESCR                       COLADR     COLPHONE        COLCONTACT          
+---------- -------------------- ---------- ------------------------------ ---------- --------------- --------------------
+MK_C1      Colection1           Private    -                              -          4162341234      Anissa Maw          
+MK_C2      Colection2           Museum     -                              -          4161234567      Hector Berlioz      
+MK_C3      Colection3           Museum     -                              -          4162341444      Skyler Layne        
 
   3 record(s) selected.
 
