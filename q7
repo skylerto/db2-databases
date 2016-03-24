@@ -1,0 +1,4 @@
+with owns (A_ID, ARTCOST) as (select A_ID, ARTCOST from Permanent2016 \
+  INNER JOIN ARTOBJ2016 ON Permanent2016.ARTID=ARTOBJ2016.ARTID) \
+  select SUM (ARTCOST) as "Total value", ANAME as "Artist name" from \
+  owns, ARTIST2016 where owns.A_ID=ARTIST2016.A_ID GROUP BY ANAME

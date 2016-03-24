@@ -1,0 +1,254 @@
+DB20000I  The UPDATE COMMAND OPTIONS command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+
+A_ID       ANAME      ABIRTH     ADEATH     ACOUNTRY   AEPOCH     ASTYLE    
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+MK_A1      MK_Artist1 12/02/1657 12/12/1702 Holland    Ancient    Academic  
+MK_A2      MK_Artist2 12/12/1980 -          Canada     Modern     Modern    
+MK_A3      MK_Artist3 01/12/1978 -          Canada     Modern     Modern    
+unknown    unknown    -          -          -          -          -         
+
+  4 record(s) selected.
+
+
+ARTID      A_ID       ARTYEAR     ARTTITLE             ARTEPOCH        ARTDESCR                                
+---------- ---------- ----------- -------------------- --------------- ----------------------------------------
+MK01       MK_A1             1700 The lake with sun    Ancient         The colors are shades of blue and green 
+MK02       MK_A1             1710 Under the trees      Ancient         Description for MK02                    
+MK03       MK_A2             2000 position             Modern          Description for MK03                    
+MK04       MK_A2             2000 Flying               Modern          Description for MK04                    
+MK05       MK_A2             2007 Sun                  Modern          Description for MK05                    
+MK06       MK_A2             2008 Flower               Modern          Description for MK06                    
+MK07       unknown           1600 Saint James          Renaissance     Description for MK07                    
+MK08       MK_A3             2000 Animals              Modern          Description for MK08                    
+MK09       MK_A3             2002 CN Tower             Modern          Description for MK09                    
+
+  9 record(s) selected.
+
+
+ARTID      PTYPE      PMAT      
+---------- ---------- ----------
+MK01       oil        canvas    
+MK02       oil        wood      
+MK07       oil        wood      
+
+  3 record(s) selected.
+
+
+ARTID      OTYPE     
+---------- ----------
+MK05       photo     
+MK06       video     
+
+  2 record(s) selected.
+
+
+E_ID       ARTID      STARTDATE  ENDDATE   
+---------- ---------- ---------- ----------
+MK_E01     MK01       02/05/2009 03/04/2009
+MK_E02     MK02       11/24/2007 12/24/2007
+MK_E02     MK03       02/02/2008 04/25/2008
+MK_E02     MK04       02/02/2008 04/25/2008
+MK_E02     MK05       02/02/2008 04/25/2008
+MK_E02     MK07       12/02/2007 02/02/2008
+MK_E03     MK06       01/01/2009 02/28/2009
+MK_E03     MK06       03/30/2009 04/30/2009
+
+  8 record(s) selected.
+
+
+ARTID      SMAT       SHEIGHT                  SWEIGHT                 
+---------- ---------- ------------------------ ------------------------
+MK03       stone                 +2.30000E+000            +2.34500E+002
+MK04       wood                  +1.20000E+001            +5.55000E+001
+MK08       steel                 +5.00000E-001            +2.50000E+000
+
+  3 record(s) selected.
+
+
+ARTID      ARTDATE    ARTCOST                  ARTSTATE  
+---------- ---------- ------------------------ ----------
+MK02       12/30/1980            +5.50000E+006 DISPLAY   
+MK03       12/12/1978            +2.30000E+004 DISPLAY   
+MK04       12/23/2000            +2.00000E+005 DISPLAY   
+MK05       12/23/2007            +2.00000E+005 STORED    
+MK06       12/12/2007            +2.00000E+007 STORED    
+
+  5 record(s) selected.
+
+
+COL_ID     COLNAME              COLTYPE    COLDESCR                       COLADR     COLPHONE        COLCONTACT          
+---------- -------------------- ---------- ------------------------------ ---------- --------------- --------------------
+MK_C1      Colection1           Private    -                              -          4162341234      Anissa Maw          
+MK_C2      Colection2           Museum     -                              -          4161234567      Hector Berlioz      
+MK_C3      Colection3           Museum     -                              -          4162341444      Skyler Layne        
+
+  3 record(s) selected.
+
+
+ARTID      COL_ID     DATEBORW   DATERETURN
+---------- ---------- ---------- ----------
+MK01       MK_C1      12/23/2004 12/02/2005
+MK01       MK_C1      12/23/2005 11/02/2006
+MK01       MK_C1      02/05/2009 03/04/2009
+MK07       MK_C2      02/02/2005 02/03/2006
+MK07       MK_C2      12/02/2007 12/12/2008
+MK08       MK_C3      12/30/2006 12/30/2008
+MK09       MK_C3      12/30/2006 12/30/2008
+
+  7 record(s) selected.
+
+
+E_ID       EXIBNAME        EXIBPLACE       EXIBSTART  EXIBEND   
+---------- --------------- --------------- ---------- ----------
+MK_E01     Exibition1      Hamilton        01/23/2009 05/04/2009
+MK_E02     Exibition2      TORONTO         11/24/2007 05/05/2008
+MK_E03     Exibition3      Toronto         01/01/2009 05/30/2009
+
+  3 record(s) selected.
+
+
+EXIBNAME        ARTID      STARTDATE  ENDDATE    EXIBSTART  EXIBEND    ARTIST    
+--------------- ---------- ---------- ---------- ---------- ---------- ----------
+Exibition1      MK01       02/05/2009 03/04/2009 01/23/2009 05/04/2009 MK_Artist1
+Exibition2      MK02       11/24/2007 12/24/2007 11/24/2007 05/05/2008 MK_Artist1
+Exibition2      MK07       12/02/2007 02/02/2008 11/24/2007 05/05/2008 unknown   
+Exibition2      MK05       02/02/2008 04/25/2008 11/24/2007 05/05/2008 MK_Artist2
+Exibition2      MK04       02/02/2008 04/25/2008 11/24/2007 05/05/2008 MK_Artist2
+Exibition2      MK03       02/02/2008 04/25/2008 11/24/2007 05/05/2008 MK_Artist2
+Exibition3      MK06       01/01/2009 02/28/2009 01/01/2009 05/30/2009 MK_Artist2
+Exibition3      MK06       03/30/2009 04/30/2009 01/01/2009 05/30/2009 MK_Artist2
+
+  8 record(s) selected.
+
+
+ARTID      ARTIST     ARTEPOCH        ARTSTATE   PRICE                    ARTDATE   
+---------- ---------- --------------- ---------- ------------------------ ----------
+MK06       MK_Artist2 Modern          STORED                +2.00000E+007 12/12/2007
+
+  1 record(s) selected.
+
+
+ARTID      COLNAME              TIMES      
+---------- -------------------- -----------
+MK01       Colection1                     3
+MK07       Colection2                     2
+MK08       Colection3                     1
+MK09       Colection3                     1
+
+  4 record(s) selected.
+
+
+ARTID      ARTIST     ARTYEAR     ARTTITLE            
+---------- ---------- ----------- --------------------
+MK07       unknown           1600 Saint James         
+MK01       MK_Artist1        1700 The lake with sun   
+MK08       MK_Artist3        2000 Animals             
+
+  3 record(s) selected.
+
+
+NBR         TYPE     
+----------- ---------
+          2 other    
+          1 painting 
+          2 sculpture
+
+  3 record(s) selected.
+
+
+ARTID      ARTDATE    ARTCOST                  ARTSTATE   ARTTYPE  
+---------- ---------- ------------------------ ---------- ---------
+MK03       12/12/1978            +2.30000E+004 DISPLAY    sculpture
+MK04       12/23/2000            +2.00000E+005 DISPLAY    sculpture
+MK05       12/23/2007            +2.00000E+005 STORED     other    
+MK02       12/30/1980            +5.50000E+006 DISPLAY    painting 
+MK06       12/12/2007            +2.00000E+007 STORED     other    
+
+  5 record(s) selected.
+
+
+Total value              Artist name
+------------------------ -----------
+  +5.50000000000000E+006 MK_Artist1 
+  +2.04230000000000E+007 MK_Artist2 
+
+  2 record(s) selected.
+
+
+ARTID      ARTCOST                  A_ID       ANAME     
+---------- ------------------------ ---------- ----------
+MK02                  +5.50000E+006 MK_A1      MK_Artist1
+MK03                  +2.30000E+004 MK_A2      MK_Artist2
+MK04                  +2.00000E+005 MK_A2      MK_Artist2
+MK05                  +2.00000E+005 MK_A2      MK_Artist2
+MK06                  +2.00000E+007 MK_A2      MK_Artist2
+
+  5 record(s) selected.
+

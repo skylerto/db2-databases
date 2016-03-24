@@ -1,0 +1,4 @@
+with artists (ARTID, A_ID, ANAME) as (select ARTID, A.A_ID, ANAME from \
+  ARTIST2016 A INNER JOIN ARTOBJ2016 B ON A.A_ID=B.A_ID) \
+  select artists.ARTID, ARTCOST, A_ID, ANAME from artists, Permanent2016 \
+  where artists.ARTID=Permanent2016.ARTID

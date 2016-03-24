@@ -1,0 +1,6 @@
+## => Final Query
+with t1 (COLNAME, ARTID, TIMES) as (select COLNAME, B.ARTID, COUNT(B.ARTID) \
+  as TIMES from collection2016 A INNER JOIN Borrowed2016 B ON A.COL_ID=B.COL_ID \
+  GROUP BY COLNAME, B.ARTID) select t1.ARTID, t1.COLNAME, \
+  TIMES from t1, Borrowed2016 A where t1.ARTID=A.ARTID \
+  GROUP BY t1.ARTID, t1.COLNAME, t1.TIMES
