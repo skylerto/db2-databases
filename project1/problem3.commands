@@ -1,0 +1,5 @@
+-- Ouput all info to the file Assignment_0.txt
+update command options using z ON Project_1_Problem_3.txt v ON 
+
+-- describe the SYSCAT.COLUMNS table
+describe select * from SYSCAT.COLUMNS

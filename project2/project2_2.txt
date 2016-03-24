@@ -1,0 +1,145 @@
+DB20000I  The UPDATE COMMAND OPTIONS command completed successfully.
+
+LIST TABLES
+
+Table/View                      Schema          Type  Creation time             
+------------------------------- --------------- ----- --------------------------
+ARTIST                          CSE23170        T     2016-02-15-19.09.02.073693
+ART_OBJECT                      CSE23170        T     2016-02-15-19.09.01.130808
+BORROWED                        CSE23170        T     2016-02-15-19.09.01.851785
+BORROWS                         CSE23170        T     2016-02-15-19.09.02.703278
+CLUB_2016                       CSE23170        T     2016-01-14-17.53.31.295547
+COLLECTION                      CSE23170        T     2016-02-15-19.09.02.383095
+EXHIBITION                      CSE23170        T     2016-02-15-19.09.02.248252
+EXPOSED                         CSE23170        T     2016-02-15-19.09.02.923074
+MADE_BY                         CSE23170        T     2016-02-15-19.09.02.536953
+OTHER                           CSE23170        T     2016-02-15-19.09.01.558700
+PAINTING                        CSE23170        T     2016-02-15-19.09.01.275809
+PERMANENT                       CSE23170        T     2016-02-15-19.09.01.702176
+SCULPTURE                       CSE23170        T     2016-02-15-19.09.01.406761
+
+  13 record(s) selected.
+
+
+select * from ARTIST
+
+A_ID    ANAME                     ABIRTH     ADEATH     ACOUNTRY        AEPOCH               ASTYLE          ABIOGRPH       
+------- ------------------------- ---------- ---------- --------------- -------------------- --------------- ---------------
+SL_A1   John Doe                  01/01/1657 01/01/1702 Holland         1657-1702            Classic         from Holland   
+SL_A2   Jane Brown                01/01/1980 -          Canada          ~1900-2000           Classic         Canadian       
+SL_A3   Carl Black                01/01/1978 -          Canada          ~1900-2000           Classic         Carl is Alive  
+unknown Kim Sing                  01/01/1978 -          Canada          ~1900-2000           Classic         Kim is unknown 
+
+  4 record(s) selected.
+
+
+select * from COLLECTION
+
+COL_ID  COLNAME         COLTYPE              COLDESCR                                           COLADR               COLPHONE   COLCONTACT          
+------- --------------- -------------------- -------------------------------------------------- -------------------- ---------- --------------------
+SL_C1   Collection1     private              This is the first collection                       4700 Keele           4767910954 Anissa Maw          
+SL_C2   Collection2     museum               This is the second collection                      4910 Keele           4767915409 Hector Berlioz      
+SL_C3   Collection3     museum               This is the third collection                       3500 Keele           4767914572 Skyler Layne        
+
+  3 record(s) selected.
+
+
+select * from EXHIBITION
+
+E_ID    EXIBNAME        EXIBPLACE                      EXIBSTART  EXIBEND   
+------- --------------- ------------------------------ ---------- ----------
+SL_E01  First Exhibit   Hamilton                       01/23/2009 05/04/2009
+SL_E02  Second Exhibit  Toronto                        11/24/2007 05/05/2008
+SL_E03  Third Exhibit   Toronto                        01/01/2009 05/30/2009
+
+  3 record(s) selected.
+
+
+select * from ART_OBJECT
+
+ARTID A_ID    ARTYEAR ARTTITLE             ARTEPOCH        ARTDESCR                                           OSTYLE         
+----- ------- ------- -------------------- --------------- -------------------------------------------------- ---------------
+SL01  SL_A1      1700 Faces                Classic         paint on canvas                                    style1         
+SL02  SL_A1      1710 title of painting    classical       wood                                               style1         
+SL03  SL_A2      2000 Stone Sculpture      classical       made from stone                                    style2         
+SL04  SL_A2      2000 Wood Sculpture       classical       made from wood                                     style2         
+SL05  SL_A2      2007 Picture              classical       photo                                              style3         
+SL06  SL_A2      2008 Video                classical       video                                              style3         
+SL07  unknown    1600 title oil painting   classical       oil paint on wood                                  style2         
+SL08  SL_A3      2000 Steel Sculpture      classical       made from steel                                    style4         
+SL09  SL_A3      2002 Photo                classical       video                                              style3         
+
+  9 record(s) selected.
+
+
+select * from PAINTING
+
+ARTID PTYPE           PMAT           
+----- --------------- ---------------
+SL01  oil             paint on canvas
+SL02  oil             wood           
+SL07  oil             wood           
+
+  3 record(s) selected.
+
+
+select * from MADE_BY
+
+ARTID A_ID   
+----- -------
+SL01  SL_A1  
+SL02  SL_A1  
+SL03  SL_A2  
+SL04  SL_A2  
+SL05  SL_A2  
+SL06  SL_A2  
+SL07  unknown
+SL08  SL_A3  
+SL09  SL_A3  
+
+  9 record(s) selected.
+
+
+select * from BORROWS
+
+ARTID COL_ID 
+----- -------
+SL01  SL_C1  
+SL07  SL_C2  
+SL08  SL_C3  
+SL09  SL_C3  
+
+  4 record(s) selected.
+
+
+select * from BORROWED
+
+ARTID DATEBORROW DATERETURNED
+----- ---------- ------------
+SL01  12/23/2004 12/02/2005  
+SL01  12/23/2005 11/02/2006  
+SL01  02/05/2009 03/04/2009  
+SL07  02/02/2005 02/03/2006  
+SL07  12/02/2007 12/12/2008  
+SL08  12/30/2006 12/30/2008  
+SL09  12/30/2006 12/30/2008  
+
+  7 record(s) selected.
+
+
+select * from EXPOSED
+
+ARTID E_ID    START_DATE END_DATE  
+----- ------- ---------- ----------
+SL01  SL_E01  02/05/2009 03/04/2009
+SL02  SL_E02  11/24/2007 12/24/2007
+SL03  SL_E02  02/02/2008 04/25/2008
+SL04  SL_E02  02/02/2008 04/25/2008
+SL05  SL_E02  02/02/2008 04/25/2008
+SL06  SL_E03  01/01/2009 02/28/2009
+SL06  SL_E03  03/30/2009 04/30/2009
+SL07  SL_E02  12/02/2007 02/02/2008
+
+  8 record(s) selected.
+
+

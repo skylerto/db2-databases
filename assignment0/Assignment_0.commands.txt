@@ -1,0 +1,14 @@
+-- Ouput all info to the file Assignment_0.txt
+update command options using z ON Assignment_0.txt
+
+-- Create the table club_2016
+create table CLUB_2016(club_id integer not null primary key, club_name varchar(10) not null, club_address varchar(12) not null, club_type varchar(12) not null check (club_type in ('horse_racing', 'biking', 'car_racing', 'fishing', 'skiing')), club_start_date date not null, club_contact varchar(12) not null)
+
+-- Insert Data
+insert into club_2016 values (1, 'YMCA', 'Toronto, CA', 'car_racing', '01/01/2000', 'Layne')
+insert into club_2016 values (2, 'YUFC', 'York, CA', 'fishing', '01/01/2005', 'Layne')
+insert into club_2016 values (3, 'CSGO', 'Sutton, CA', 'skiing', '12/21/2005', 'Layne')
+insert into club_2016 values (4, 'HIPPIE', 'Keswick, CA', 'biking', '03/22/1963', 'Layne')
+
+-- Show table
+select * from club_2016

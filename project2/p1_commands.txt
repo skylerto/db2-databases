@@ -1,0 +1,122 @@
+-- TABLE CREATION
+-- ENTITY SETS
+drop table ART_OBJECT
+create table ART_OBJECT (ArtID varchar(5) not null primary key, A_Id varchar(7) not null, ArtYear smallint not null, ArtTitle varchar(20) not null, ArtEpoch varchar(15) not null, ArtDescr varchar(50) not null, OStyle varchar(15) not null, constraint fk_artist foreign key (A_Id) references ARTIST)
+
+-- ISA ART_OBJECT (GENERALIZATIONs)
+drop table PAINTING
+create table PAINTING (ArtID varchar(5) not null primary key, Ptype varchar(15) not null, PMat varchar(15) not null, constraint fk_painting foreign key (ArtID) references ART_OBJECT on delete cascade)
+
+drop table SCULPTURE
+create table SCULPTURE (ArtID varchar(5) not null primary key, SMat varchar(15) not null, SHeight real not null, Sweight real not null, constraint fk_sculpture foreign key (ArtID) references ART_OBJECT on delete cascade)
+
+drop table OTHER
+create table OTHER (ArtID varchar(5) not null primary key, OType varchar(10) not null, constraint fk_other foreign key (ArtID) references ART_OBJECT on delete cascade)
+
+-- ISA ART_OBJECT (GENERALIZATIONs)
+drop table PERMANENT
+create table PERMANENT (ArtID varchar(5) not null primary key, ArtDate date not null, ArtState varchar(7) check (ArtState in ('DISPLAY', 'STORED'))  not null, ArtCost real not null, constraint fk_permanent foreign key (ArtID) references ART_OBJECT on delete cascade)
+
+drop table BORROWED
+create table BORROWED (ArtID varchar(5) not null, DateBorrow date not null, DateReturned date not null, primary key (ArtID, DateBorrow, DateReturned), constraint fk_borrowed foreign key (ArtID) references ART_OBJECT on delete cascade)
+
+drop table ARTIST
+create table ARTIST (A_Id varchar(7) not null primary key, AName varchar(25) not null, ABirth date not null, ADeath date, ACountry varchar(15) not null, AEpoch varchar(20) not null, AStyle varchar(15) not null, ABiogrph varchar(15) not null)
+
+drop table EXHIBITION
+create table EXHIBITION (E_Id varchar(7) not null primary key, ExibName varchar(15) not null, ExibPlace varchar(30) not null, ExibStart date not null, ExibEnd date not null)
+
+drop table COLLECTION
+create table COLLECTION (Col_Id varchar(7) not null primary key, ColName varchar(15) not null, ColType varchar(20) not null, ColDescr varchar(50) not null, ColAdr varchar(20) not null, ColPhone varchar(10) not null, ColContact varchar(20) not null )
+
+-- RELATIONSHIP SETS
+-- ART_OBJECT MADE_BY ARTIST
+drop table MADE_BY
+create table MADE_BY ( ArtID varchar(5) not null, A_ID varchar(7) not null, primary key (ArtID), foreign key (ArtID) references ART_OBJECT on delete cascade, foreign key (A_ID) references ARTIST on delete cascade)
+
+-- ART_OBJECTS BORROWS OTHER_COLLECTIONS
+drop table BORROWS
+create table BORROWS (ArtID varchar(5) not null, Col_Id varchar(7) not null, primary key (ArtID, Col_Id), foreign key (ArtID) references ART_OBJECT on delete cascade, foreign key (Col_ID) references COLLECTION on delete cascade)
+
+-- ART_OBJECT EXPOSED EXHIBITION
+drop table EXPOSED
+create table EXPOSED (ArtID varchar(5) not null, E_Id varchar(7) not null, Start_date date not null, End_date date not null, primary key (ArtID, E_Id, Start_date), foreign key (ArtID) references ART_OBJECT on delete cascade, foreign key (E_Id) references EXHIBITION on delete cascade)
+
+-- TABLE INSERTION
+-- ARTIST INFORMATION
+insert into ARTIST VALUES ('SL_A1', 'John Doe', '01-01-1657', '01-01-1702', 'Holland', '1657-1702', 'Classic', 'from Holland')
+insert into ARTIST VALUES ('SL_A2', 'Jane Brown', '01-01-1980', null, 'Canada', '~1900-2000', 'Classic', 'Canadian')
+insert into ARTIST VALUES ('SL_A3', 'Carl Black', '01-01-1978', null, 'Canada', '~1900-2000', 'Classic', 'Carl is Alive')
+insert into ARTIST VALUES ('unknown', 'Kim Sing', '01-01-1978', null, 'Canada', '~1900-2000', 'Classic', 'Kim is unknown')
+
+-- COLLECTIONS
+insert into COLLECTION values ('SL_C1', 'Collection1', 'private', 'This is the first collection', '4700 Keele', '4767910954', 'Anissa Maw')
+insert into COLLECTION values ('SL_C2', 'Collection2', 'museum', 'This is the second collection', '4910 Keele', '4767915409', 'Hector Berlioz')
+insert into COLLECTION values ('SL_C3', 'Collection3', 'museum', 'This is the third collection', '3500 Keele', '4767914572', 'Skyler Layne')
+
+-- EXHIBITIONS
+insert into EXHIBITION values ('SL_E01', 'First Exhibit', 'Hamilton', ('01-23-2009'), ('05-04-2009'))
+insert into EXHIBITION values ('SL_E02', 'Second Exhibit', 'Toronto', ('11-24-2007'), ('05-05-2008'))
+insert into EXHIBITION values ('SL_E03', 'Third Exhibit', 'Toronto', ('01-01-2009'), ('05-30-2009'))
+
+--ART_OBJECT INFORMATION
+insert into ART_OBJECT values ('SL01', 'SL_A1', 1700, 'Faces', 'Classic', 'paint on canvas', 'style1')
+insert into PAINTING values ('SL01', 'oil', 'paint on canvas')
+insert into MADE_BY values ('SL01', 'SL_A1')
+insert into BORROWS values ('SL01', 'SL_C1')
+insert into BORROWED values ('SL01', ('12-23-2004'), ('12-02-2005'))
+insert into BORROWED values ('SL01', ('12-23-2005'), ('11-02-2006'))
+insert into BORROWED values ('SL01', ('02-05-2009'), ('03-04-2009'))
+insert into EXPOSED values ('SL01', 'SL_E01', ('02-05-2009'), ('03-04-2009'))
+
+
+insert into ART_OBJECT values ('SL02', 'SL_A1', 1710, 'title of painting', 'classical', 'wood', 'style1')
+insert into PAINTING values ('SL02', 'oil', 'wood')
+insert into MADE_BY values ('SL02', 'SL_A1')
+insert into EXPOSED values ('SL02', 'SL_E02', ('11-24-2007'), ('12-24-2007'))
+insert into PERMANENT values ('SL02', ('12-30-1980'), 'DISPLAY', 5.5E6)
+
+insert into ART_OBJECT values ('SL03', 'SL_A2', 2000, 'Stone Sculpture', 'classical', 'made from stone', 'style2')
+insert into SCULPTURE values ('SL03', 'stone', '2.3', '234.5')
+insert into MADE_BY values ('SL03', 'SL_A2')
+insert into EXPOSED values ('SL03', 'SL_E02', ('02-02-2008'), ('04-25-2008'))
+insert into PERMANENT values ('SL03', ('12-12-1978'), 'DISPLAY', 2.3E4)
+
+insert into ART_OBJECT values ('SL04', 'SL_A2', 2000, 'Wood Sculpture', 'classical', 'made from wood', 'style2')
+insert into SCULPTURE values ('SL04', 'wood', '12', '55.5')
+insert into MADE_BY values ('SL04', 'SL_A2')
+insert into EXPOSED values ('SL04', 'SL_E02', ('02-02-2008'), ('04-25-2008'))
+insert into PERMANENT values ('SL04', ('12-23-2000'), 'DISPLAY', 2E5)
+
+insert into ART_OBJECT values ('SL05', 'SL_A2', 2007, 'Picture', 'classical', 'photo', 'style3')
+insert into OTHER values ('SL05', 'photo')
+insert into MADE_BY values ('SL05', 'SL_A2')
+insert into EXPOSED values ('SL05', 'SL_E02', ('02-02-2008'), ('04-25-2008'))
+insert into PERMANENT values ('SL05', ('12-23-2007'), 'STORED', 2E5)
+
+insert into ART_OBJECT values ('SL06', 'SL_A2', 2008, 'Video', 'classical', 'video', 'style3')
+insert into OTHER values ('SL06', 'video')
+insert into MADE_BY values ('SL06', 'SL_A2')
+insert into EXPOSED values ('SL06', 'SL_E03', ('01-01-2009'), ('02-28-2009'))
+insert into EXPOSED values ('SL06', 'SL_E03', ('03-30-2009'), ('04-30-2009'))
+insert into PERMANENT values ('SL06', ('12-12-2007'), 'STORED', 2E7)
+
+insert into ART_OBJECT values ('SL07', 'unknown', 1600, 'title oil painting', 'classical', 'oil paint on wood', 'style2')
+insert into PAINTING values ('SL07', 'oil', 'wood')
+insert into MADE_BY values ('SL07', 'unknown')
+insert into BORROWS values ('SL07', 'SL_C2')
+insert into BORROWED values ('SL07', ('02-02-2005'), ('02-03-2006'))
+insert into BORROWED values ('SL07', ('12-02-2007'), ('12-12-2008'))
+insert into EXPOSED values ('SL07', 'SL_E02', ('12-02-2007'), ('02-02-2008'))
+
+insert into ART_OBJECT values ('SL08', 'SL_A3', 2000, 'Steel Sculpture', 'classical', 'made from steel', 'style4')
+insert into SCULPTURE values ('SL08', 'steel', '0.5', '2.5')
+insert into MADE_BY values ('SL08', 'SL_A3')
+insert into BORROWS values ('SL08', 'SL_C3')
+insert into BORROWED values ('SL08', ('12-30-2006'), ('12-30-2008'))
+
+insert into ART_OBJECT values ('SL09', 'SL_A3', 2002, 'Photo', 'classical', 'video', 'style3')
+insert into OTHER values ('SL09', 'photo')
+insert into MADE_BY values ('SL09', 'SL_A3')
+insert into BORROWS values ('SL09', 'SL_C3')
+insert into BORROWED values ('SL09', ('12-30-2006'), ('12-30-2008'))

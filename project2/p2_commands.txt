@@ -1,0 +1,29 @@
+LIST TABLES
+
+-- Show All ARTISTS
+select * from ARTIST
+
+-- Show All COLLECTION
+select * from COLLECTION
+
+-- Show All EXHIBITION
+select * from EXHIBITION
+
+-- ART_OBJECT
+-- CAST(ARTDESCR AS VARCHAR(20))
+select * from ART_OBJECT
+
+-- PAINTING
+select * from PAINTING
+
+-- MADE_BY
+select * from MADE_BY
+
+-- BORROWS
+select * from BORROWS
+
+-- BORROWED
+select * from BORROWED
+
+-- EXPOSED
+select * from EXPOSED

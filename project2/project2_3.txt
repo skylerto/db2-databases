@@ -1,0 +1,5 @@
+Constraints in ERM not able to model in Relational Model:
+
+The total participation constraints in the MADE_BY, EXPOSED, and BORROWED relationship sets we not able to be modeled in the Relational model. We will need a trigger for these constraints because we cannot ensure that when one entity in the relation is added, one from the other is also added.
+
+For MADE_BY if we add an ART_OBJECT or an ARTIST in the MADE_BY set we need to add the other respectively. For EXPOSED if we add an EXHIBITION in the EXPOSED set we need to add a ART_OBJECT. For BORROWED if we add an BORROWED or an COLLECTION in the BORROWED set we need to add the other respectively.

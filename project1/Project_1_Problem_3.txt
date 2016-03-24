@@ -1,0 +1,72 @@
+DB20000I  The UPDATE COMMAND OPTIONS command completed successfully.
+
+describe select * from SYSCAT.COLUMNS
+
+ Column Information
+
+ Number of columns: 56
+
+                                                                    Name                Data type  Schema                      Name
+ SQL type              Type length  Column name                     length  Lob length  schema     length  Data type name      length
+ --------------------  -----------  ------------------------------  ------  ----------  ---------  ------  ------------------  --------
+ 448   VARCHAR                 128  TABSCHEMA                            9           0  SYSIBM          6  VARCHAR                    7
+ 448   VARCHAR                 128  TABNAME                              7           0  SYSIBM          6  VARCHAR                    7
+ 448   VARCHAR                 128  COLNAME                              7           0  SYSIBM          6  VARCHAR                    7
+ 500   SMALLINT                  2  COLNO                                5           0  SYSIBM          6  SMALLINT                   8
+ 448   VARCHAR                 128  TYPESCHEMA                          10           0  SYSIBM          6  VARCHAR                    7
+ 448   VARCHAR                 128  TYPENAME                             8           0  SYSIBM          6  VARCHAR                    7
+ 496   INTEGER                   4  LENGTH                               6           0  SYSIBM          6  INTEGER                    7
+ 500   SMALLINT                  2  SCALE                                5           0  SYSIBM          6  SMALLINT                   8
+ 449   VARCHAR                  11  TYPESTRINGUNITS                     15           0  SYSIBM          6  VARCHAR                    7
+ 497   INTEGER                   4  STRINGUNITSLENGTH                   17           0  SYSIBM          6  INTEGER                    7
+ 409   CLOB                      0  DEFAULT                              7       65536  SYSIBM          6  CLOB                       4
+ 452   CHARACTER                 1  NULLS                                5           0  SYSIBM          6  CHARACTER                  9
+ 500   SMALLINT                  2  CODEPAGE                             8           0  SYSIBM          6  SMALLINT                   8
+ 449   VARCHAR                 128  COLLATIONSCHEMA                     15           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  COLLATIONNAME                       13           0  SYSIBM          6  VARCHAR                    7
+ 452   CHARACTER                 1  LOGGED                               6           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  COMPACT                              7           0  SYSIBM          6  CHARACTER                  9
+ 492   BIGINT                    8  COLCARD                              7           0  SYSIBM          6  BIGINT                     6
+ 449   VARCHAR                 254  HIGH2KEY                             8           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 254  LOW2KEY                              7           0  SYSIBM          6  VARCHAR                    7
+ 496   INTEGER                   4  AVGCOLLEN                            9           0  SYSIBM          6  INTEGER                    7
+ 501   SMALLINT                  2  KEYSEQ                               6           0  SYSIBM          6  SMALLINT                   8
+ 501   SMALLINT                  2  PARTKEYSEQ                          10           0  SYSIBM          6  SMALLINT                   8
+ 500   SMALLINT                  2  NQUANTILES                          10           0  SYSIBM          6  SMALLINT                   8
+ 500   SMALLINT                  2  NMOSTFREQ                            9           0  SYSIBM          6  SMALLINT                   8
+ 492   BIGINT                    8  NUMNULLS                             8           0  SYSIBM          6  BIGINT                     6
+ 449   VARCHAR                 128  TARGET_TYPESCHEMA                   17           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  TARGET_TYPENAME                     15           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  SCOPE_TABSCHEMA                     15           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  SCOPE_TABNAME                       13           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  SOURCE_TABSCHEMA                    16           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  SOURCE_TABNAME                      14           0  SYSIBM          6  VARCHAR                    7
+ 453   CHARACTER                10  DL_FEATURES                         11           0  SYSIBM          6  CHARACTER                  9
+ 453   CHARACTER                 8  SPECIAL_PROPS                       13           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  HIDDEN                               6           0  SYSIBM          6  CHARACTER                  9
+ 496   INTEGER                   4  INLINE_LENGTH                       13           0  SYSIBM          6  INTEGER                    7
+ 500   SMALLINT                  2  PCTINLINED                          10           0  SYSIBM          6  SMALLINT                   8
+ 452   CHARACTER                 1  IDENTITY                             8           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  ROWCHANGETIMESTAMP                  18           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  GENERATED                            9           0  SYSIBM          6  CHARACTER                  9
+ 409   CLOB                      0  TEXT                                 4     2097154  SYSIBM          6  CLOB                       4
+ 452   CHARACTER                 1  COMPRESS                             8           0  SYSIBM          6  CHARACTER                  9
+ 481   DOUBLE                    8  AVGDISTINCTPERPAGE                  18           0  SYSIBM          6  DOUBLE                     6
+ 481   DOUBLE                    8  PAGEVARIANCERATIO                   17           0  SYSIBM          6  DOUBLE                     6
+ 500   SMALLINT                  2  SUB_COUNT                            9           0  SYSIBM          6  SMALLINT                   8
+ 500   SMALLINT                  2  SUB_DELIM_LENGTH                    16           0  SYSIBM          6  SMALLINT                   8
+ 496   INTEGER                   4  AVGCOLLENCHAR                       13           0  SYSIBM          6  INTEGER                    7
+ 449   VARCHAR                 254  IMPLICITVALUE                       13           0  SYSIBM          6  VARCHAR                    7
+ 449   VARCHAR                 128  SECLABELNAME                        12           0  SYSIBM          6  VARCHAR                    7
+ 452   CHARACTER                 1  ROWBEGIN                             8           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  ROWEND                               6           0  SYSIBM          6  CHARACTER                  9
+ 452   CHARACTER                 1  TRANSACTIONSTARTID                  18           0  SYSIBM          6  CHARACTER                  9
+ 500   SMALLINT                  2  PCTENCODED                          10           0  SYSIBM          6  SMALLINT                   8
+ 449   VARCHAR                 128  QUALIFIER                            9           0  SYSIBM          6  VARCHAR                    7
+ 409   CLOB                      0  FUNC_PATH                            9        2048  SYSIBM          6  CLOB                       4
+ 449   VARCHAR                 254  REMARKS                              7           0  SYSIBM          6  VARCHAR                    7
+
+
+quit
+DB20000I  The QUIT command completed successfully.
+

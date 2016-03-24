@@ -1,0 +1,32 @@
+DB20000I  The UPDATE COMMAND OPTIONS command completed successfully.
+
+create table CLUB_2016(club_id integer not null primary key, club_name varchar(10) not null, club_address varchar(12) not null, club_type varchar(12) not null check (club_type in ('horse_racing', 'biking', 'car_racing', 'fishing', 'skiing')), club_start_date date not null, club_contact varchar(12) not null)
+DB20000I  The SQL command completed successfully.
+
+insert into club_2016 values (1, 'YMCA', 'Toronto, CA', 'car_racing', '01/01/2000', 'Layne')
+DB20000I  The SQL command completed successfully.
+
+insert into club_2016 values (2, 'YUFC', 'York, CA', 'fishing', '01/01/2005', 'Layne')
+DB20000I  The SQL command completed successfully.
+
+insert into club_2016 values (3, 'CSGO', 'Sutton, CA', 'skiing', '12/21/2005', 'Layne')
+DB20000I  The SQL command completed successfully.
+
+insert into club_2016 values (4, 'HIPPIE', 'Keswick, CA', 'biking', '03/22/1963', 'Layne')
+DB20000I  The SQL command completed successfully.
+
+select * from club_2016
+
+CLUB_ID     CLUB_NAME  CLUB_ADDRESS CLUB_TYPE    CLUB_START_DATE CLUB_CONTACT
+----------- ---------- ------------ ------------ --------------- ------------
+          1 YMCA       Toronto, CA  car_racing   01/01/2000      Layne       
+          2 YUFC       York, CA     fishing      01/01/2005      Layne       
+          3 CSGO       Sutton, CA   skiing       12/21/2005      Layne       
+          4 HIPPIE     Keswick, CA  biking       03/22/1963      Layne       
+
+  4 record(s) selected.
+
+
+quit
+DB20000I  The QUIT command completed successfully.
+
